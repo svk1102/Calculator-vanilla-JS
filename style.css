@@ -1,0 +1,121 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+    font-family: 'Girassol', cursive;
+    font-weight: normal;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right , lightgreen,lightblue );
+}
+
+.calculator-grid{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4,80px);
+    grid-template-rows: minmax(120px,auto) repeat(5,80px);
+}
+
+.calculator-grid>button{
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid grey;
+    outline: none;
+    background-color: rgba(255, 255, 255,.75 );
+}
+.calculator-grid>button:hover{
+ background-color: gray;
+ border: 1px solid white;
+}
+.span-two{
+    grid-column: span 2;
+}
+
+.output{
+    grid-column: 1/-1;
+    background-color: white;
+    border: 1px solid gray;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.output .previous-operand{
+    color: rgba(0, 0, 0, 0.719);
+    font-size: 1.5rem;
+}
+.output .current-operand{
+    color: black;
+    font-size: 2.5rem;
+}
+
+/*---------Dark mode-------------------*/
+.dark-mode-toggler{
+    display: flex;
+    margin-top: 20px;
+    float: right;
+    margin-right: 40px;
+}
+body.dark{
+    background: #292C35;
+}
+.checkbox {
+	opacity: 0;
+	position: absolute;
+}
+.label {
+	background-color: #111;
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+	position: relative;
+	height: 26px;
+	width: 50px;
+	transform: scale(1.5);
+}
+.label .ball {
+	background-color: #fff;
+	border-radius: 50%;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	height: 22px;
+	width: 22px;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+.checkbox:checked + .label .ball {
+	transform: translateX(24px);
+}
+.moon{
+    color: #fff;
+}
+.sun{
+    color: gold;
+}
+
+@media(max-width:500px){
+    
+    .calculator-grid{
+        transform: scale(0.8);
+    }
+    .label{
+        transform: scale(0.8);
+    }
+}
+@media(max-width:350px){
+    .calculator-grid{
+        transform: scale(.7);
+        margin-left: 90px;    
+    }
+}
